@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+/* Yes I'm inline, but for simplicities sake let it go :) */
+* {
+	padding:0;
+}
+body {
+	font-family:Arial,Helvetica,Tahoma,Verdana,Sans-Serif;margin:40px;
+}
+p {margin:0 auto;padding-top:40px;clear:both;}
+.btn { border:1px solid #999;padding:5px;display:inline-block;cursor:pointer;overflow:hidden;}
+
+
+/* Elements that will load the loader must have a relative postion everything else is up to you.*/
+.box-1 {
+	position:relative;overflow:hidden;
+	width:400px;height:200px;border:1px dashed #900;text-align:center;margin:5px;float:left;
+}
+.box-2 {
+	position:relative;overflow:hidden;
+	width:400px;height:200px;border:1px dashed #36F;text-align:center;margin:5px;float:left;
+}
+.box-3 {
+	position:relative;overflow:hidden;
+	width:400px;height:200px;border:1px dashed #0C0;text-align:center;margin:5px;float:left;
+}
+.box-4 {
+	position:relative;overflow:hidden;
+	width:400px;height:200px;border:1px dashed #636;text-align:center;margin:5px;float:left;
+}
+
+
+/***********************/
+/* Ajax Loader styles */
+.ajax_loader {background: url("spinner_squares_circle.gif") no-repeat center center transparent;width:100%;height:100%;}
+.blue-loader .ajax_loader {background: url("ajax-loader_blue.gif") no-repeat center center transparent;}
+
+</style>
+<script id="jquery" src="jquery-1.4.2.min.js" type="text/javascript"></script>
+<script id="loader" src="script.js" type="text/javascript"></script>
+<script>
+$(document).ready(function() {
+	var box1, box2, box3, box4; 
+	
+	$(".box-1").live('click', function(){	
+		box1 = new ajaxLoader(this);
+	});
+	
+	$(".box-2").live('click', function(){	
+		box2 = new ajaxLoader(this, {classOveride: 'blue-loader'});
+	});
+	
+	$(".box-3").live('click', function(){	
+		box3 = new ajaxLoader(this, {classOveride: 'blue-loader', bgColor: '#000'});
+	});
+	
+	$(".box-4").live('click', function(){	
+		box4 = new ajaxLoader(this, {classOveride: 'blue-loader', bgColor: '#000', opacity: '0.3'});
+	});
+	
+	$(".btn").live('click', function(){	
+		if (box1) box1.remove();
+		if (box2) box2.remove();
+		if (box3) box3.remove();
+		if (box4) box4.remove();
+	});
+	
+});
+</script>
+<title>Ajax Loader - A Plus Design</title>
+</head>
+<body>
+	<h1>Ajax loader - Click inside the boxes to load the ajax loader :)</h1>
+    <div>
+    	<div class="btn">Remove loaders</div>
+    </div>
+    <div class="box-1">
+    	<p>Content inside the box</p>
+    </div> 
+    <div class="box-2">
+    	<p>  options = {classOveride: 'blue-loader'}</p>
+    </div>
+    <div class="box-3">
+    	<p> options = {classOveride: 'blue-loader', bgColor: '#000'}</p>
+    </div>
+    <div class="box-4">
+    	<p> options = {classOveride: 'blue-loader', bgColor: '#000', opacity: '0.3'}</p>
+    </div>
+    <p>Not tested  in ie6, and personally, I don't have a mind to.</p>
+</body>
+</html>
