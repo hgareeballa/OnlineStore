@@ -50,7 +50,7 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'mysql.hostinger.co.uk';
 $db['default']['username'] = 'u879419448_myr';
-$db['default']['password'] = 'Divdas123';
+$db['default']['password'] = '';
 $db['default']['database'] = 'u879419448_myr';
 
 $db['default']['dbdriver'] = 'mysqli';
